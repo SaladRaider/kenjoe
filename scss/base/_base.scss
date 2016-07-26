@@ -1,0 +1,27 @@
+body {
+	font-family: FuturaLight;
+}
+
+p {
+	line-height: 26px;
+	font-size: $base-font-size;
+	//text-indent: 30px;
+	font-family: FuturaLight;
+}
+
+a:hover{
+	text-decoration: none;
+	cursor: pointer;
+	color: $color-purple;
+	@include transition($btn-trans-time, $btn-ease);
+}
+
+a {
+	@include transition($btn-trans-time, $btn-ease);
+	color: $color-purple;
+}
+
+a:active  {
+	color: $color-purple;
+	text-decoration: none;
+}

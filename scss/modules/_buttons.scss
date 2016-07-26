@@ -1,0 +1,64 @@
+.nav-btn {
+	padding-left: 40px;
+	font-size: $base-font-size;
+	color: $color-white;
+}
+
+.nav-btn-holder {
+	text-align: right;
+	float: right;
+	line-height: 66px;
+}
+
+.btn-flat-purple {
+	background-color: $color-purple;
+	width: 100%;
+	line-height: 40px;
+	font-size: $base-font-size;
+	color: $color-white;
+	display: inline-block;
+	border-width: $border-width-default;
+	border-color: $color-purple;
+	border-style: solid;
+	text-align: center;
+	margin: $margin-default-v 0px;
+}
+
+.btn-flat-purple:hover {
+	background-color: $color-white;
+	color: $color-purple;
+}
+
+.btn-flat-inv {
+	@extend .btn-flat-purple;
+	color: $color-purple;
+	background-color: $color-white;
+}
+
+.btn-flat-inv:hover {
+	color: $color-white;
+	background-color: $color-purple;
+}
+
+.btn-group-standard :nth-child(n) {
+	@include border-radius(0px);
+	border-right-width: 0px;
+	border-left-width: $border-width-default;
+}
+
+.btn-group-standard :first-child {
+	@include border-radius($border-radius-default 0px 0px $border-radius-default);
+	border-left-width: $border-width-default;
+}
+
+.btn-group-standard :last-child {
+	@include border-radius(0px $border-radius-default $border-radius-default 0px);
+	border-left-width: $border-width-default;
+	border-right-width: $border-width-default;
+}
+
+.scroll-down {
+	font-size: $font-size-xxl;
+	position: absolute;
+	bottom: 44px;
+}
