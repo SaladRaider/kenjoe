@@ -684,6 +684,11 @@ a:active {
   -ms-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%); }
 
+.carousel-inner .item {
+  text-align: center; }
+  .carousel-inner .item img {
+    display: inline-block; }
+
 .nav-btn {
   padding-left: 40px;
   font-size: 18px;

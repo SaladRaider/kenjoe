@@ -35,7 +35,7 @@
 <div class="container-fluid grey-back">
 	<div class="container">
 		<div class="col-xs-12 col-sm-6 col-md-4 v-padding">
-			<a href="#">
+			<a href="./listing.php">
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
@@ -49,7 +49,7 @@
 			</a>
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-4 v-padding">
-			<a href="#">
+			<a href="./listing.php">
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
@@ -63,7 +63,7 @@
 			</a>
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-4 v-padding">
-			<a href="#">
+			<a href="./listing.php">
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
@@ -79,7 +79,7 @@
 
 		<div class="col-xs-12 v-padding v-padding-bottom-sm">
 			<div class="text-centered wow fadeInUp animation-delay-2 btn-contained">
-				<a href="./refills.php" class="btn-flat-black">VIEW MORE</a>
+				<a href="./listings.php" class="btn-flat-black">VIEW MORE</a>
 			</div>
 		</div>
 	</div>
