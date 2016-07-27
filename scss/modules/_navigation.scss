@@ -52,17 +52,17 @@
 .navbar-light {
 	height: 70px;
 	background-color: $color-white;
-	border-color: $color-purple;
+	border-color: $color-off-white;
 	border-style: solid;
-	border-bottom-width: $border-width-big;
+	border-bottom-width: $border-width-md;
 	@include transition($btn-trans-time, $btn-ease);
 
 	a {
-		color: $color-grey;
+		color: $color-black;
 	}
 
 	a:hover {
-		color: $color-purple;
+		color: $color-grey;
 	}
 
 	.navbar-header {
@@ -76,8 +76,9 @@
 
 	.logo h1 {
 		margin-top: 0px;
-		margin-left: 40px;
-		font-size: $font-size-md;
+		margin-left: 0px;
+		//font-size: $font-size-md;
+		color: $color-black;
 		@include transition($btn-trans-time, $btn-ease);
 
 		div {
@@ -110,11 +111,11 @@
 
 	h1 {
 		margin: 0px;
-		margin-left: 80px;
-		margin-top: 0px;
+		margin-left: 0px;
+		margin-top: 10px;
 		width: 100%;
 		//float: left;
-		color: $color-purple;
+		color: $color-white;
 		@include transition($btn-trans-time, $btn-ease);
 		//display: inline-block;
 		
@@ -127,7 +128,7 @@
 
 .navbar-toggle {
     margin-top: 15px;
-    background-color: $color-purple;
+    background-color: $color-black;
 }
 
 .navbar-toggle {
@@ -146,7 +147,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: transparent;
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 .sr-only {
@@ -180,6 +181,7 @@
 }
 
 .navbar-collapse {
+	margin-top: -1px;
     padding-right: 15px;
     padding-left: 15px;
     overflow-x: visible;

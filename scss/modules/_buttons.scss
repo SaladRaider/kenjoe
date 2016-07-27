@@ -10,34 +10,84 @@
 	line-height: 66px;
 }
 
-.btn-flat-purple {
-	background-color: $color-purple;
+.btn-flat-dark-grey {
+	background-color: $color-dark-grey;
 	width: 100%;
 	line-height: 40px;
 	font-size: $base-font-size;
 	color: $color-white;
 	display: inline-block;
 	border-width: $border-width-default;
-	border-color: $color-purple;
+	border-color: $color-dark-grey;
 	border-style: solid;
 	text-align: center;
 	margin: $margin-default-v 0px;
 }
 
-.btn-flat-purple:hover {
+.btn-flat-dark-grey:hover {
 	background-color: $color-white;
-	color: $color-purple;
+	color: $color-dark-grey;
 }
 
-.btn-flat-inv {
-	@extend .btn-flat-purple;
-	color: $color-purple;
-	background-color: $color-white;
-}
-
-.btn-flat-inv:hover {
+.btn-flat-black {
+	background-color: $color-black;
+	width: 100%;
+	line-height: 40px;
+	font-size: $base-font-size;
 	color: $color-white;
-	background-color: $color-purple;
+	display: inline-block;
+	border-width: $border-width-default;
+	border-color: $color-black;
+	border-style: solid;
+	text-align: center;
+	margin: $margin-default-v 0px;
+}
+
+.btn-flat-black:hover {
+	background-color: transparent;
+	color: $color-black;
+}
+
+.btn-flat-black-wh {
+	background-color: $color-black;
+	width: 100%;
+	line-height: 40px;
+	font-size: $base-font-size;
+	color: $color-white;
+	display: inline-block;
+	border-width: $border-width-default;
+	border-color: $color-black;
+	border-style: solid;
+	text-align: center;
+	margin: $margin-default-v 0px;
+}
+
+.btn-flat-black-wh:hover {
+	background-color: transparent;
+	color: $color-white;
+	border-color: $color-white;
+}
+
+.btn-flat-dark-grey-inv {
+	@extend .btn-flat-dark-grey;
+	color: $color-dark-grey;
+	background-color: transparent;
+}
+
+.btn-flat-dark-grey-inv:hover {
+	color: $color-white;
+	background-color: $color-dark-grey;
+}
+
+.btn-flat-black-inv {
+	@extend .btn-flat-dark-grey;
+	color: $color-black;
+	background-color: transparent;
+}
+
+.btn-flat-black-inv:hover {
+	color: $color-white;
+	background-color: $color-black;
 }
 
 .btn-group-standard :nth-child(n) {

@@ -12,16 +12,16 @@ p {
 a:hover{
 	text-decoration: none;
 	cursor: pointer;
-	color: $color-purple;
+	color: $color-dark-grey;
 	@include transition($btn-trans-time, $btn-ease);
 }
 
 a {
 	@include transition($btn-trans-time, $btn-ease);
-	color: $color-purple;
+	color: $color-dark-grey;
 }
 
 a:active  {
-	color: $color-purple;
+	color: $color-dark-grey;
 	text-decoration: none;
 }

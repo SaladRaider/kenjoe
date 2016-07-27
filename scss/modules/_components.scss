@@ -6,6 +6,7 @@
 	padding-right: $outskirts-padding;
 	display: table;
 	width: 100%;
+	z-index: 0;
 }
 
 .header-image-sm {
@@ -24,7 +25,7 @@
 .centered {
 	//@include align-center();
 	display: table-cell;
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .banner-text {
@@ -34,6 +35,14 @@
 
 .text-centered {
 	text-align: center;
+}
+
+.text-left-aligned {
+	text-align: left;
+}
+
+.text-right-aligned {
+	text-align: right;
 }
 
 .big-text {
@@ -76,11 +85,17 @@
 	font-size: $font-size-sm;
 }
 
+.dark-grey-back {
+	background-color: $color-black;
+	color: $color-white;
+	font-size: $font-size-sm;
+}
+
 .text-box-outline {
 	background-color: transparent;
 	border-style: solid;
 	border-width: $border-width-default;
-	border-color: $color-purple;
+	border-color: $color-grey;
 	text-align: left;
 	vertical-align: middle;
 	line-height: 36px;
@@ -115,8 +130,8 @@
 
 	background-color: $color-white;
 
-	border-color: $color-purple;
-	border-width: $border-width-big 0 0 0;
+	border-color: $color-off-white;
+	border-width: $border-width-md 0 0 0;
 	border-style: solid;
 
 	padding-left: $outskirts-padding;
@@ -135,8 +150,8 @@
 }
 
 .row {
-    margin-right: -15px;
-    margin-left: -15px;
+	margin-right: -15px;
+	margin-left: -15px;
 }
 
 .animate-infinite {
@@ -160,15 +175,35 @@
 	padding-left: $outskirts-padding;
 }
 
+.h-padding-sm {
+	padding-right: $outskirts-padding-sm;
+	padding-left: $outskirts-padding-sm;
+}
+
 .v-padding {
 	padding-top: $outskirts-padding;
+	//padding-bottom: $outskirts-padding;
+}
+
+.v-padding-bottom {
+	//padding-top: $outskirts-padding;
 	padding-bottom: $outskirts-padding;
+}
+
+.v-padding-bottom-sm {
+	//padding-top: $outskirts-padding;
+	padding-bottom: $outskirts-padding-sm;
+}
+
+.v-padding-sm {
+	padding-top: $outskirts-padding-sm;
+	//padding-bottom: $outskirts-padding;
 }
 
 .image {
 	background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .table-display {
@@ -197,3 +232,55 @@
 	width: 100%;
 }
 
+.btn-contained {
+	max-width: 300px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.house-card {
+	border-color: $color-slight-white;
+	border-style: solid;
+	border-width: $border-width-default;
+	background-color: $color-white;
+	color: $color-black;
+	height: 390px;
+	@include transition($btn-trans-time, $btn-ease);
+
+	.house-img {
+		height: 250px;
+	}
+
+	.house-desc {
+
+	}
+
+	.price-text {
+		font-size: $font-size-md;
+	}
+}
+
+.house-card:hover {
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	@include transition($btn-trans-time, $btn-ease);
+}
+
+#video-back {
+	position: relative;
+	background: transparent;
+}
+
+.ytplayer-container{
+	position: absolute;
+	top: 0;
+	z-index: -101;
+	max-height: 100vh;
+	overflow: hidden;
+	max-width: 100vw;
+	@include align-hor();
+}
+
+.ytplayer-player {
+	
+}
