@@ -16,11 +16,11 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
+					
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
+					
 				</div>
 			</div>
 			</a>
@@ -30,11 +30,11 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
+					
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
+					
 				</div>
 			</div>
 			</a>
@@ -44,11 +44,11 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
+					
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
+					
 				</div>
 			</div>
 			</a>
@@ -58,11 +58,11 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
+					
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
+					
 				</div>
 			</div>
 			</a>
@@ -72,11 +72,11 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
+					
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
+					
 				</div>
 			</div>
 			</a>
@@ -86,11 +86,11 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
+					
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
+					
 				</div>
 			</div>
 			</a>
@@ -100,11 +100,11 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
+					
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
+					
 				</div>
 			</div>
 			</a>
@@ -114,11 +114,11 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
+					
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
+					
 				</div>
 			</div>
 			</a>

@@ -1,23 +1,13 @@
 <div class="container-fluid dark-grey-back">
-	<div class="container">
+	<div class="container footer-container">
 		<div class="col-xs-8 text-left-aligned">
-			kenjoe@kw.com | (626) 975-5108
+			<?php echo file_get_contents("./txt/footer-text.txt"); ?>
 		</div>
-		<div class="col-xs-4 text-right-aligned">
-			follow me: 
+		<div class="col-xs-4 text-right-aligned font-md">
+			<a href="<?php echo file_get_contents("./txt/facebook-page-link.txt"); ?>" target="_blank"><span class="fa fa-facebook-official" ></span></a> <a href="<?php echo file_get_contents("./txt/linkedin-page-link.txt"); ?>" target="_blank" ><span class="fa fa-linkedin-square"></span></a>
 		</div>
 	</div>
 </div>
-
-<!--
-<div class="fixed-footer">
-	<div style="float: left;"><p><span class="fa fa-phone"></span> +1 (626) 522-2735</p></div>
-	<div class="centered-h hidden-xs">
-		<p>3408 N. Eastern Ave., Los Angeles </p>
-	</div>
-	<div class="hidden-xs" style="float: right;"><a href="mailto:ordercpac@gmail.com"><p><span class="fa fa-paper-plane-o"></span> ordercpac@gmail.com</p></a></div>
-
-</div>-->
 
 <script src="js/jquery-2.0.0.min.js" type="text/javascript"r></script>
 <script src="js/parallax.min.js" type="text/javascript"r></script>

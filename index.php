@@ -7,7 +7,7 @@
 	<div class="container centered banner-text">
 		<h2>
 			<div class="xxl-text-prop row text-centered">
-				KEN JOE, ARCADIA
+				<?php echo file_get_contents("./txt/center-screen-text.txt"); ?>
 				<div class="text-centered wow fadeInUp animation-delay-2 btn-contained v-padding">
 					<a onclick="$('#start-of-content').goTo();" class="btn-flat-black-wh">EXPLORE</a>
 				</div>
@@ -26,7 +26,7 @@
 		<div class="centered">
 			<h2 class="wow fadeInUp">ABOUT</h2>
 			<p class="wow fadeInUp">
-				If you are searching for a customized medication that most U.S. pharmacies can't provide, there may be a simple solution.  Compounding pharmacies mix drugs individually for patients that need, say, a smaller dose, different formulation, or different delivery mechanism than what is available at ordinary retail pharmacies.  If you are allergic to a common medication ingredient - such as gluten - cannot swallow pills due to a disability, or need to make a drug more palatable for a child or pet, Compounding Pharmacy Associates and Consultants (CPAC) might be your answer.
+				<?php echo nl2br(file_get_contents("./txt/about-content.txt")); ?>
 			</p>
 		</div>
 	</div>
@@ -39,11 +39,9 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
 				</div>
 			</div>
 			</a>
@@ -53,11 +51,9 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
 				</div>
 			</div>
 			</a>
@@ -67,11 +63,9 @@
 			<div class="house-card">
 				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
 				<div class="house-desc h-padding-sm v-padding-sm">
-					<p>
 						<div class="price-text">$500,000</div>
 						3bds, 2 ba, 2,683 sqft<br />
 						537 Cloverleaf Dr, Monrovia, CA
-					</p>
 				</div>
 			</div>
 			</a>
@@ -91,10 +85,7 @@
 		<div class="col-sm-4">
 			<h2 class="wow fadeInUp">CONTACT</h2>
 			<p>
-				M: (626) 975-5108<br />
-				O: (626) 386-7888<br />
-				F: (626) 386-7800<br />
-				kenjoe@kw.com
+				<?php echo nl2br(file_get_contents("./txt/contact-content.txt")); ?>
 			</p>
 		</div>
 		<div class="col-sm-8">
@@ -118,7 +109,7 @@
 	});*/
 
 	$('#dr-berry').parallax({
-		imageSrc: './images/Main-Line-Business-Headshot-Photographer1.jpg',
+		imageSrc: '<?php echo file_get_contents("./txt/profile-photo.txt"); ?>',
 		speed: 0.8
 	});
 

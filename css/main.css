@@ -390,13 +390,17 @@ textarea {
 @font-face {
   font-family: FuturaLight;
   src: url("../fonts/Futura-T-OT-Book_19064.ttf"); }
+@font-face {
+  font-family: ProximaNovaAltLight;
+  src: url("../fonts/Mark Simonson - Proxima Nova Alt Light.otf"); }
 body {
-  font-family: FuturaLight; }
+  font-family: ProximaNovaAltLight; }
 
 p {
   line-height: 26px;
   font-size: 18px;
-  font-family: FuturaLight; }
+  padding-top: 0px;
+  font-family: ProximaNovaAltLight; }
 
 a:hover {
   text-decoration: none;
@@ -524,6 +528,11 @@ a:active {
   -ms-border-radius: 0px;
   -o-border-radius: 0px;
   border-radius: 0px; }
+
+.text-box-outline[type=file], [type=file].text-area-outline {
+  line-height: 18px;
+  height: 36px;
+  padding-top: 5px; }
 
 .text-box-outline:hover, .text-area-outline:hover, .text-box-outline:focus, .text-area-outline:focus {
   outline: none; }
@@ -688,6 +697,22 @@ a:active {
   text-align: center; }
   .carousel-inner .item img {
     display: inline-block; }
+
+.font-md {
+  font-size: 24px; }
+
+.font-default {
+  font-size: 18px; }
+
+.footer-container {
+  padding: 0px;
+  height: 64px; }
+  .footer-container div {
+    line-height: 64px; }
+    .footer-container div a {
+      color: #fff; }
+    .footer-container div a:hover {
+      color: #666; }
 
 .nav-btn {
   padding-left: 40px;

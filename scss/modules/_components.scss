@@ -108,6 +108,12 @@
 	@include border-radius($border-radius-default);
 }
 
+.text-box-outline[type=file] {
+	line-height: $base-font-size;
+	height: 36px;
+	padding-top: 5px;
+}
+
 .text-box-outline:hover, .text-box-outline:focus {
 	outline: none;
 }
@@ -287,11 +293,35 @@
 
 .carousel-inner {
 	.item {
-	text-align: center;
+		text-align: center;
 
-	img {
-		display: inline-block;
+		img {
+			display: inline-block;
+		}
 	}
 }
 
+.font-md {
+	font-size: $font-size-md;
+}
+
+.font-default {
+	font-size: $base-font-size;
+}
+
+.footer-container {
+	padding: 0px;
+	height: 64px;
+
+	div {
+		line-height: 64px;
+
+		a {
+			color: $color-white;
+		}
+
+		a:hover {
+			color: $color-dark-grey;
+		}
+	}
 }
