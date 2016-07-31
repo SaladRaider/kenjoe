@@ -297,6 +297,7 @@
 
 		img {
 			display: inline-block;
+			max-height: 500px;
 		}
 	}
 }
@@ -324,4 +325,10 @@
 			color: $color-dark-grey;
 		}
 	}
+}
+
+.dropzone {
+	border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: white;
 }

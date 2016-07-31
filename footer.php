@@ -15,6 +15,7 @@
 <script src="js/scrollTo.js"></script>
 <script src="js/wow.js"></script>
 <script src="js/youtubebackground.js"></script>
+<script src="js/dropzone.js"></script>
 
 <script>
 

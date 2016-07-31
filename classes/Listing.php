@@ -1,7 +1,7 @@
 <?php
 
 class Listing {
-	private $listingId;
+	private $listingsId;
 	private $address;
 	private $price;
 	private $estimatedMortgage;
@@ -10,6 +10,8 @@ class Listing {
 	private $sqFt;
 	private $description;
 	private $facts;
+
+	// PUBLIC METHODS
 
 	public static function createListingsFromQueryRows($rows) {
 		$listings = array();
@@ -20,8 +22,8 @@ class Listing {
 	}
 
 	public function __construct($rowData) {
-		if(!empty($initData['listing_id']))
-			$this->listingId = $rowData['listing_id'];
+		if(!empty($rowData['listings_id']))
+			$this->listingsId = $rowData['listings_id'];
 		$this->address = $rowData['address'];
 		$this->price = $rowData['price'];
 		$this->estimatedMortgage = $rowData['est_mortgage'];
@@ -32,8 +34,8 @@ class Listing {
 		$this->facts = $rowData['facts'];
 	}
 
-	public function getListingId() {
-		return $this->listingId;
+	public function getListingsId() {
+		return $this->listingsId;
 	}
 
 	public function getAddress() {
@@ -79,6 +81,47 @@ class Listing {
 		}
 
 		return "<ul>{$html}</ul>";
+	}
+
+	public function getListingPhotosAsHTML(KJDatabase $database) {
+		$listingPhotos = $database->getListingPhotosByListingsId($this->listingsId);
+		return $this->renderListingPhotosAsHTML($listingPhotos);
+	}
+
+	public function setListingsId($listingsId) {
+		$this->listingsId = $listingsId;
+	}
+
+	// PRIVATE METHODS
+
+	private function renderListingPhotosAsHTML($listingPhotos) {
+		$renderedFirstPhoto = false;
+		$renderedHTML = "";
+
+		foreach($listingPhotos as $listingPhoto) {
+			if($renderedFirstPhoto)
+				$renderedHTML .= $this->renderListingPhotoAsHTML($listingPhoto);
+			else {
+				$renderedHTML .= $this->renderFirstListingPhotoAsHTML($listingPhoto);
+				$renderedFirstPhoto = true;
+			}
+		}
+
+		return $renderedHTML;
+	}
+
+	private function renderListingPhotoAsHTML($listingPhoto) {
+		return "
+			<div class=\"item\">
+				<img src=\"{$listingPhoto->getPhotoPath()}\" alt=\"Exterior\" >
+			</div>";
+	}
+
+	private function renderFirstListingPhotoAsHTML($listingPhoto) {
+		return "
+			<div class=\"item active\">
+				<img src=\"{$listingPhoto->getPhotoPath()}\" alt=\"Exterior\" >
+			</div>";
 	}
 }
 

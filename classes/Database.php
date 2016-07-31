@@ -16,6 +16,10 @@ class KJDatabase {
 
 	// GET MTHODS
 
+	function getLastInsertId() {
+		return $this->db->lastInsertId();
+	}
+
 	function getAllListings() {
 		$query = $this->db->prepare("SELECT * FROM `listings`");
 		$query->execute();
@@ -37,6 +41,14 @@ class KJDatabase {
 		$query->execute();
 		
 		return new Listing($query->fetch());
+	}
+
+	function getListingPhotosByListingsId($listingsId) {
+		$query = $this->db->prepare("SELECT * FROM `listing_photos` WHERE `listings_id` = :listingsId");
+		$query->bindParam(":listingsId", $listingsId);
+		$query->execute();
+	
+		return ListingPhoto::createListingPhotosFromQueryRows($query->fetchAll());
 	}
 
 	// ADD METHODS
@@ -66,6 +78,37 @@ class KJDatabase {
 		$query->bindValue(7, $listing->getDescription());
 		$query->bindValue(8, $listing->getFacts());
 		$query->execute();
+		$listing->setListingsId($this->getLastInsertId());
+	}
+
+	public function addListingPhoto($listingPhoto) {
+		$query = $this->db->prepare("
+			INSERT INTO `listing_photos`
+			(
+				`listings_id`,
+				`file_type`
+			)
+			VALUES
+			(?,?);
+		");
+		$query->bindValue(1, $listingPhoto->getListingsId());
+		$query->bindValue(2, $listingPhoto->getFileType());
+		$query->execute();
+		$listingPhoto->setListingPhotosId($this->getLastInsertId());
+	}
+
+	// TRANSACTION METHODS
+
+	public function beginTransaction() {
+		$this->db->beginTransaction();
+	}
+
+	public function commit() {
+		$this->db->commit();
+	}
+
+	public function rollBack() {
+		$this->db->rollBack();
 	}
 
 	// PRIVATE METHODS

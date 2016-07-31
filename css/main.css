@@ -696,7 +696,8 @@ a:active {
 .carousel-inner .item {
   text-align: center; }
   .carousel-inner .item img {
-    display: inline-block; }
+    display: inline-block;
+    max-height: 500px; }
 
 .font-md {
   font-size: 24px; }
@@ -713,6 +714,11 @@ a:active {
       color: #fff; }
     .footer-container div a:hover {
       color: #666; }
+
+.dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  background: white; }
 
 .nav-btn {
   padding-left: 40px;
