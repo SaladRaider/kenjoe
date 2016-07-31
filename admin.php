@@ -8,7 +8,7 @@
 </div>
 
 <span id="start-of-content"></span>
-<form action="write-content.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+<form action="./post/write-content.php" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
 <div class="container-fluid">
 	<div class="container">

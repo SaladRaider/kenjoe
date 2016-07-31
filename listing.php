@@ -1,10 +1,16 @@
 
-<?php include("./header.php"); ?>
+<?php 
+require_once "./paths.php";
+require_once $path['config.php'];
+require_once "header.php";
+
+$listing = $database->getListingById($_GET['listing_id']);
+
+?>
 
 <div class="container-fluid header-image-sm" data-parallax="scroll" data-image="./images/Gingerbread_House_Essex_CT.jpg">
 	<div class="container centered banner-text">
-		<h2><div class="xxl-text-prop row text-centered">537 Cloverleaf Dr,
-Monrovia, CA 91016</div></h2>
+		<h2><div class="xxl-text-prop row text-centered"><?php echo $listing->getAddress(); ?></div></h2>
 	</div>
 </div>
 
@@ -23,30 +29,30 @@ Monrovia, CA 91016</div></h2>
 			<div class="item active">
 				<img src="images/Gingerbread_House_Essex_CT.jpg" alt="Exterior" >
 				<div class="carousel-caption">
-		          <h3>Exterior</h3>
-		          <p>Some description of th epicture.</p>
-		        </div>
+					<h3>Exterior</h3>
+					<p>Some description of th epicture.</p>
+				</div>
 			</div>
 			<div class="item">
 				<img src="images/Gingerbread_House_Essex_CT.jpg" alt="Exterior">
 				<div class="carousel-caption">
-		          <h3>Exterior</h3>
-		          <p>Some description of th epicture.</p>
-		        </div>
+					<h3>Exterior</h3>
+					<p>Some description of th epicture.</p>
+				</div>
 			</div>
 			<div class="item">
 				<img src="images/Gingerbread_House_Essex_CT.jpg" alt="Exterior">
 				<div class="carousel-caption">
-		          <h3>Exterior</h3>
-		          <p>Some description of th epicture.</p>
-		        </div>
+					<h3>Exterior</h3>
+					<p>Some description of th epicture.</p>
+				</div>
 			</div>
 			<div class="item">
 				<img src="images/Gingerbread_House_Essex_CT.jpg" alt="Exterior">
 				<div class="carousel-caption">
-		          <h3>Exterior</h3>
-		          <p>Some description of th epicture.</p>
-		        </div>
+					<h3>Exterior</h3>
+					<p>Some description of th epicture.</p>
+				</div>
 			</div>
 		</div>
 		<!-- Left and right controls -->
@@ -65,32 +71,19 @@ Monrovia, CA 91016</div></h2>
 	<div class="container">
 		<div class="col-sm-6">
 			<p>
-				<h3>$500,000</h3>
-				3 beds, 2 baths, 2,683 sqft<br />
+				<h3>$<?php echo $listing->getPrice(); ?></h3>
+				<?php echo $listing->getNumOfBeds(); ?> beds, <?php echo $listing->getNumOfBaths(); ?> baths, <?php echo $listing->getSqFt(); ?> sqft<br />
 				<br />
-				Approx 4.88 acres. This lush property is nestled in Cloverleaf Canyon. Very private and peaceful location, with stable, riding rings, and riding and hiking trails. There are a few flat pads on the property to build an estate or keep the same and rehab the current house on the property. The property also has a guest house with a storage structure. This property has many possibilities. Buyer to check with city.
+				<?php echo $listing->getDescription(); ?>
 			</p>
 		</div>
 		<div class="col-sm-6">
 			<p>
-			<h3>EST. MORTGAGE</h3>
-			$7,017/mo<br /><br />
-			Facts
-				<ul>
-				<li>Lot: 19.1 acres</li>
-				<li>Multiple Occupancy</li>
-				<li>Built in 1916</li>
-				<li>225 days on Zillow</li>
-				<li>Views since listing: 2,432</li>
-				<li>All time views: 4,466</li>
-				<li>10 shoppers saved this home</li>
-				<li>Cooling: Central</li>
-				<li>Heating: Other</li>
-				<li>Last sold: Oct 2006 for $3,100,000</li>
-				<li>Price/sqft: $745</li>
-				<li>MLS #: AR16094647</li>
-				</ul>
-</p>
+				<h3>EST. MORTGAGE</h3>
+				$<?php echo $listing->getEstimatedMortgage(); ?>/mo<br /><br />
+				Facts
+				<?php echo $listing->getFactsAsHTML(); ?>
+			</p>
 		</div>
 	</div>
 </div>
