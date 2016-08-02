@@ -4,7 +4,6 @@ require_once $path['config.php'];
 require_once "header.php";
 
 $listing = $database->getListingById($_GET['listing_id']);
-
 ?>
 
 <div class="container-fluid header-image-sm" data-parallax="scroll" data-image="<?php echo $listing->getFeaturedListingPhotoPath($database); ?>">

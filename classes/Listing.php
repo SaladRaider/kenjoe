@@ -131,6 +131,22 @@ class Listing {
 		</div>";
 	}
 
+	public function renderEditable($database) {
+		$featuredListingPhoto = $database->getListingPhotoById($this->getFeaturedListingPhotosId());
+		echo "
+		<div class=\"col-xs-12 col-sm-6 col-md-4 v-padding\">
+			<a href=\"./listing.php?listing_id={$this->getListingsId()}\" target=\"_blank\">View</a> <a href=\"./edit-listing.php?listing_id={$this->getListingsId()}\">Edit</a> <a onclick=\"deleteListing({$this->getListingsId()})\">Delete</a>
+			<div class=\"house-card\">
+				<div class=\"house-img image\" style=\"background-image: url('{$featuredListingPhoto->getPhotoPath()}');\" ></div>
+				<div class=\"house-desc h-padding-sm v-padding-sm\">
+					<div class=\"price-text\">{$this->getPrice()}</div>
+					{$this->getNumOfBeds()} bds, {$this->getNumOfBaths()} ba, {$this->getSqFt()} sqft<br />
+					{$this->getAddress()}
+				</div>
+			</div>
+		</div>";
+	}
+
 	// PRIVATE METHODS
 
 	private function renderListingPhotosAsHTML($listingPhotos) {

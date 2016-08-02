@@ -21,14 +21,27 @@ class KJDatabase {
 	}
 
 	public function getAllListings() {
-		$query = $this->db->prepare("SELECT * FROM `listings`");
+		$query = $this->db->prepare("
+		SELECT * FROM
+			(SELECT 
+				*,  
+				IF(`realtor`='Ken Joe', 1, 0) as `is_ken_joe`
+			FROM `listings`) T
+		ORDER BY `is_ken_joe`DESC;");
 		$query->execute();
 		
 		return Listing::createListingsFromQueryRows($query->fetchAll());
 	}
 
 	public function getListingsLimitBy($numOfListingsToFetch) {
-		$query = $this->db->prepare("SELECT * FROM `listings` LIMIT :numOfListingsToFetch");
+		$query = $this->db->prepare("
+		SELECT * FROM
+			(SELECT 
+				*,  
+				IF(`realtor`='Ken Joe', 1, 0) as `is_ken_joe`
+			FROM `listings` 
+			LIMIT :numOfListingsToFetch) T
+		ORDER BY `is_ken_joe`DESC;");
 		$query->bindParam(":numOfListingsToFetch", $numOfListingsToFetch, PDO::PARAM_INT);
 		$query->execute();
 		
