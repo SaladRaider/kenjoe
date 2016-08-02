@@ -101,6 +101,10 @@ class Listing {
 		return $this->renderListingPhotosAsHTML($listingPhotos);
 	}
 
+	public function getListingPhotos(KJDatabase $database) {
+		return $database->getListingPhotosByListingsId($this->listingsId);
+	}
+
 	public function getFeaturedListingPhotoPath($database) {
 		$featuredListingPhoto = $database->getListingPhotoById($this->getFeaturedListingPhotosId());
 		return $featuredListingPhoto->getPhotoPath();
@@ -135,7 +139,7 @@ class Listing {
 		$featuredListingPhoto = $database->getListingPhotoById($this->getFeaturedListingPhotosId());
 		echo "
 		<div class=\"col-xs-12 col-sm-6 col-md-4 v-padding\">
-			<a href=\"./listing.php?listing_id={$this->getListingsId()}\" target=\"_blank\">View</a> <a href=\"./edit-listing.php?listing_id={$this->getListingsId()}\">Edit</a> <a onclick=\"deleteListing({$this->getListingsId()})\">Delete</a>
+			<a href=\"./listing.php?listing_id={$this->getListingsId()}\" target=\"_blank\">View</a> | <a href=\"./new-listing-photos.php?listing_id={$this->getListingsId()}\">Edit Photos</a> | <a href=\"./edit-listing.php?listing_id={$this->getListingsId()}\">Edit</a> | <a onclick=\"deleteListing({$this->getListingsId()})\">Delete</a>
 			<div class=\"house-card\">
 				<div class=\"house-img image\" style=\"background-image: url('{$featuredListingPhoto->getPhotoPath()}');\" ></div>
 				<div class=\"house-desc h-padding-sm v-padding-sm\">

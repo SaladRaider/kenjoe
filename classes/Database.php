@@ -169,6 +169,11 @@ class KJDatabase {
 		$query->execute();
 	}
 
+	public function deleteListingPhoto($listingPhotosId) {
+		$query = $this->db->prepare("DELETE FROM `listing_photos` WHERE `listing_photos_id`=:listingPhotosId");
+		$query->bindParam(":listingPhotosId", $listingPhotosId, PDO::PARAM_INT);
+		$query->execute();
+	}
 	// TRANSACTION METHODS
 
 	public function beginTransaction() {
