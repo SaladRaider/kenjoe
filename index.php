@@ -1,5 +1,10 @@
+<?php 
+require_once "./paths.php";
+require_once $path['config.php'];
+require_once "header.php";
 
-<?php include("header.php"); ?>
+$listings = $database->getListingsLimitBy(3);
+?>
 
 <div id="video-back" ></div>
 
@@ -34,42 +39,12 @@
 
 <div class="container-fluid grey-back">
 	<div class="container">
-		<div class="col-xs-12 col-sm-6 col-md-4 v-padding">
-			<a href="./listing.php">
-			<div class="house-card">
-				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
-				<div class="house-desc h-padding-sm v-padding-sm">
-						<div class="price-text">$500,000</div>
-						3bds, 2 ba, 2,683 sqft<br />
-						537 Cloverleaf Dr, Monrovia, CA
-				</div>
-			</div>
-			</a>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4 v-padding">
-			<a href="./listing.php">
-			<div class="house-card">
-				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
-				<div class="house-desc h-padding-sm v-padding-sm">
-						<div class="price-text">$500,000</div>
-						3bds, 2 ba, 2,683 sqft<br />
-						537 Cloverleaf Dr, Monrovia, CA
-				</div>
-			</div>
-			</a>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4 v-padding">
-			<a href="./listing.php">
-			<div class="house-card">
-				<div class="house-img image" style="background-image: url('./images/Gingerbread_House_Essex_CT.jpg');" ></div>
-				<div class="house-desc h-padding-sm v-padding-sm">
-						<div class="price-text">$500,000</div>
-						3bds, 2 ba, 2,683 sqft<br />
-						537 Cloverleaf Dr, Monrovia, CA
-				</div>
-			</div>
-			</a>
-		</div>
+		
+		<?php
+		foreach($listings as $listing) {
+			$listing->render($database);
+		}
+		?>
 
 		<div class="col-xs-12 v-padding v-padding-bottom-sm">
 			<div class="text-centered wow fadeInUp animation-delay-2 btn-contained">

@@ -107,17 +107,11 @@ class ListingPhoto {
 		return $this->listingPhotosId . "." . $this->getPhotoExtensionFromFile($this->file);
 	}
 
-	private function getPhotoFullDestinationPath() {
-		return $this->getPhotoFullDestinationPath() . "/" . getPhotoFileName();
-	}
-
 	private function savePhotoToLisitingDest() {
 		$filePath = $this->getPhotoDestinationPath();
 		if(!file_exists($filePath)) {
 			mkdir($filePath, 0777, true);
-			echo $filePath . " Created Directory<br />";
 		}
-		echo $filePath . "/" . $this->getPhotoFileName();
 		move_uploaded_file($this->file["tmp_name"], $filePath . "/" . $this->getPhotoFileName());
 	}
 

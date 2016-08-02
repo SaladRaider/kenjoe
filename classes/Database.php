@@ -16,36 +16,44 @@ class KJDatabase {
 
 	// GET MTHODS
 
-	function getLastInsertId() {
+	public function getLastInsertId() {
 		return $this->db->lastInsertId();
 	}
 
-	function getAllListings() {
+	public function getAllListings() {
 		$query = $this->db->prepare("SELECT * FROM `listings`");
 		$query->execute();
 		
 		return Listing::createListingsFromQueryRows($query->fetchAll());
 	}
 
-	function getListingsLimitBy($numOfListingsToFetch) {
+	public function getListingsLimitBy($numOfListingsToFetch) {
 		$query = $this->db->prepare("SELECT * FROM `listings` LIMIT :numOfListingsToFetch");
-		$query->bindParam(":numOfListingsToFetch", $numOfListingsToFetch);
+		$query->bindParam(":numOfListingsToFetch", $numOfListingsToFetch, PDO::PARAM_INT);
 		$query->execute();
 		
 		return Listing::createListingsFromQueryRows($query->fetchAll());
 	}
 
-	function getListingById($listingsId) {
+	public function getListingById($listingsId) {
 		$query = $this->db->prepare("SELECT * FROM `listings` WHERE `listings_id` = :listingsId");
-		$query->bindParam(":listingsId", $listingsId);
+		$query->bindParam(":listingsId", $listingsId, PDO::PARAM_INT);
 		$query->execute();
 		
 		return new Listing($query->fetch());
 	}
 
-	function getListingPhotosByListingsId($listingsId) {
+	public function getListingPhotoById($listingPhotosId) {
+		$query = $this->db->prepare("SELECT * FROM `listing_photos` WHERE `listing_photos_id` = :listingPhotosId");
+		$query->bindParam(":listingPhotosId", $listingPhotosId, PDO::PARAM_INT);
+		$query->execute();
+	
+		return new ListingPhoto($query->fetch());
+	}
+
+	public function getListingPhotosByListingsId($listingsId) {
 		$query = $this->db->prepare("SELECT * FROM `listing_photos` WHERE `listings_id` = :listingsId");
-		$query->bindParam(":listingsId", $listingsId);
+		$query->bindParam(":listingsId", $listingsId, PDO::PARAM_INT);
 		$query->execute();
 	
 		return ListingPhoto::createListingPhotosFromQueryRows($query->fetchAll());
@@ -64,10 +72,12 @@ class KJDatabase {
 				`baths`,
 				`sq_ft`,
 				`description`,
-				`facts`
+				`facts`,
+				`realtor`,
+				`featured_listing_photos_id`
 			)
 			VALUES
-			(?,?,?,?,?,?,?,?);
+			(?,?,?,?,?,?,?,?,?,?);
 		");
 		$query->bindValue(1, $listing->getAddress());
 		$query->bindValue(2, $listing->getPrice());
@@ -77,6 +87,8 @@ class KJDatabase {
 		$query->bindValue(6, $listing->getSqFt());
 		$query->bindValue(7, $listing->getDescription());
 		$query->bindValue(8, $listing->getFacts());
+		$query->bindValue(9, $listing->getRealtor());
+		$query->bindValue(10, $listing->getFeaturedListingPhotosId());
 		$query->execute();
 		$listing->setListingsId($this->getLastInsertId());
 	}
@@ -95,6 +107,39 @@ class KJDatabase {
 		$query->bindValue(2, $listingPhoto->getFileType());
 		$query->execute();
 		$listingPhoto->setListingPhotosId($this->getLastInsertId());
+	}
+
+	// UPDATE METHODS
+
+	public function updateListing($listing) {
+		$query = $this->db->prepare("
+			UPDATE `listings`
+			SET
+				`address`=?,
+				`price`=?,
+				`est_mortgage`=?,
+				`beds`=?,
+				`baths`=?,
+				`sq_ft`=?,
+				`description`=?,
+				`facts`=?,
+				`realtor`=?,
+				`featured_listing_photos_id`=?
+			WHERE
+			`listings_id` = ?;
+		");
+		$query->bindValue(1, $listing->getAddress());
+		$query->bindValue(2, $listing->getPrice());
+		$query->bindValue(3, $listing->getEstimatedMortgage());
+		$query->bindValue(4, $listing->getNumOfBeds());
+		$query->bindValue(5, $listing->getNumOfBaths());
+		$query->bindValue(6, $listing->getSqFt());
+		$query->bindValue(7, $listing->getDescription());
+		$query->bindValue(8, $listing->getFacts());
+		$query->bindValue(9, $listing->getRealtor());
+		$query->bindValue(10, $listing->getFeaturedListingPhotosId());
+		$query->bindValue(11, $listing->getListingsId());
+		$query->execute();
 	}
 
 	// TRANSACTION METHODS

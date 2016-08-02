@@ -10,6 +10,8 @@ class Listing {
 	private $sqFt;
 	private $description;
 	private $facts;
+	private $realtor;
+	private $featuredListingPhotosId;
 
 	// PUBLIC METHODS
 
@@ -32,6 +34,9 @@ class Listing {
 		$this->sqFt = $rowData['sq_ft'];
 		$this->description = $rowData['description'];
 		$this->facts = $rowData['facts'];
+		$this->realtor = $rowData['realtor'];
+		if(!empty($rowData['featured_listing_photos_id']))
+			$this->featuredListingPhotosId = $rowData['featured_listing_photos_id'];
 	}
 
 	public function getListingsId() {
@@ -70,6 +75,14 @@ class Listing {
 		return $this->facts;
 	}
 
+	public function getRealtor() {
+		return $this->realtor;
+	}
+
+	public function getFeaturedListingPhotosId() {
+		return $this->featuredListingPhotosId;
+	}
+
 	public function getFactsAsHTML() {
 		$html = "";
 		$facts = explode("\n", $this->facts);
@@ -88,16 +101,26 @@ class Listing {
 		return $this->renderListingPhotosAsHTML($listingPhotos);
 	}
 
+	public function getFeaturedListingPhotoPath($database) {
+		$featuredListingPhoto = $database->getListingPhotoById($this->getFeaturedListingPhotosId());
+		return $featuredListingPhoto->getPhotoPath();
+	}
+
 	public function setListingsId($listingsId) {
 		$this->listingsId = $listingsId;
 	}
 
-	public function render() {
+	public function setFeaturedListingPhotosId($featuredListingPhotosId) {
+		$this->featuredListingPhotosId = $featuredListingPhotosId;
+	}
+
+	public function render($database) {
+		$featuredListingPhoto = $database->getListingPhotoById($this->getFeaturedListingPhotosId());
 		echo "
 		<div class=\"col-xs-12 col-sm-6 col-md-4 v-padding\">
 			<a href=\"./listing.php?listing_id={$this->getListingsId()}\">
 			<div class=\"house-card\">
-				<div class=\"house-img image\" style=\"background-image: url('./images/Gingerbread_House_Essex_CT.jpg');\" ></div>
+				<div class=\"house-img image\" style=\"background-image: url('{$featuredListingPhoto->getPhotoPath()}');\" ></div>
 				<div class=\"house-desc h-padding-sm v-padding-sm\">
 					<div class=\"price-text\">{$this->getPrice()}</div>
 					{$this->getNumOfBeds()} bds, {$this->getNumOfBaths()} ba, {$this->getSqFt()} sqft<br />

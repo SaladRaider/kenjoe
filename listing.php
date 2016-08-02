@@ -4,9 +4,10 @@ require_once $path['config.php'];
 require_once "header.php";
 
 $listing = $database->getListingById($_GET['listing_id']);
+
 ?>
 
-<div class="container-fluid header-image-sm" data-parallax="scroll" data-image="./images/Gingerbread_House_Essex_CT.jpg">
+<div class="container-fluid header-image-sm" data-parallax="scroll" data-image="<?php echo $listing->getFeaturedListingPhotoPath($database); ?>">
 	<div class="container centered banner-text">
 		<h2><div class="xxl-text-prop row text-centered"><?php echo $listing->getAddress(); ?></div></h2>
 	</div>
@@ -70,5 +71,5 @@ $listing = $database->getListingById($_GET['listing_id']);
 
 <script>
 	<!-- go here: http://pixelcog.github.io/parallax.js/ for info -->
-	$('.header-image-sm').parallax({imageSrc: './images/Gingerbread_House_Essex_CT.jpg'});
+	$('.header-image-sm').parallax({imageSrc: '<?php echo $listing->getFeaturedListingPhotoPath($database); ?>'});
 </script>

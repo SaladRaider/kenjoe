@@ -18,11 +18,9 @@ $listings = $database->getAllListings();
 	<div class="container">
 
 		<?php
-
 		foreach($listings as $listing) {
-			$listing->render();
+			$listing->render($database);
 		}
-
 		?>
 
 	</div>
