@@ -31,7 +31,7 @@ $listings = $database->getAllListings();
 
 	function deleteListing(listingsId) {
 		if(confirm("Are you sure you want to delete this listing?")) {
-			window.location.href = "./post/delete-listing?listing_id="+listingsId;
+			window.location.href = "./post/delete-listing.php?listing_id="+listingsId;
 		}
 	}
 </script>

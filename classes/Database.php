@@ -155,6 +155,20 @@ class KJDatabase {
 		$query->execute();
 	}
 
+	// DELETE METHODS
+
+	public function deleteListing($listingsId) {
+		$query = $this->db->prepare("DELETE FROM `listings` WHERE `listings_id`=:listingsId");
+		$query->bindParam(":listingsId", $listingsId, PDO::PARAM_INT);
+		$query->execute();
+	}
+
+	public function deleteListingPhotosByListingsId($listingsId) {
+		$query = $this->db->prepare("DELETE FROM `listing_photos` WHERE `listings_id`=:listingsId");
+		$query->bindParam(":listingsId", $listingsId, PDO::PARAM_INT);
+		$query->execute();
+	}
+
 	// TRANSACTION METHODS
 
 	public function beginTransaction() {
