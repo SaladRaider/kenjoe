@@ -16,7 +16,7 @@ class Listing {
 	public static function createListingsFromQueryRows($rows) {
 		$listings = array();
 		foreach($rows as $row) {
-			$listings = new Listing($row);
+			$listings[] = new Listing($row);
 		}
 		return $listings;
 	}
@@ -90,6 +90,22 @@ class Listing {
 
 	public function setListingsId($listingsId) {
 		$this->listingsId = $listingsId;
+	}
+
+	public function render() {
+		echo "
+		<div class=\"col-xs-12 col-sm-6 col-md-4 v-padding\">
+			<a href=\"./listing.php?listing_id={$this->getListingsId()}\">
+			<div class=\"house-card\">
+				<div class=\"house-img image\" style=\"background-image: url('./images/Gingerbread_House_Essex_CT.jpg');\" ></div>
+				<div class=\"house-desc h-padding-sm v-padding-sm\">
+					<div class=\"price-text\">{$this->getPrice()}</div>
+					{$this->getNumOfBeds()} bds, {$this->getNumOfBaths()} ba, {$this->getSqFt()} sqft<br />
+					{$this->getAddress()}
+				</div>
+			</div>
+			</a>
+		</div>";
 	}
 
 	// PRIVATE METHODS
