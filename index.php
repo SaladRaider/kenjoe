@@ -64,13 +64,14 @@ $listings = $database->getListingsLimitBy(3);
 			</p>
 		</div>
 		<div class="col-sm-8">
-
+			<form action="./post/send-contact-email.php" method="post" accept-charset="utf-8">
 			<div class="btn-group-standard wow fadeInUp">
 				<input class="text-box-outline col-xs-12 col-sm-6" type="text" name="name" placeholder="Name" />
 				<input class="text-box-outline col-xs-12 col-sm-6" type="text" name="email" placeholder="Email" />
 			</div>
 			<textarea rows=5 class="text-area-outline col-xs-12 wow fadeInUp" name="message" placeholder="Message"></textarea>
-			<a class="btn-flat-black-inv col-xs-12 wow fadeInUp">Send Message</a>
+			<input class="btn-flat-black-inv col-xs-12 wow fadeInUp" type="submit" value="Send Message" />
+			</form>
 		</div>
 	</div>
 </div>

@@ -48,11 +48,11 @@ class Listing {
 	}
 
 	public function getPrice() {
-		return $this->price;
+		return number_format($this->price);
 	}
 
 	public function getEstimatedMortgage() {
-		return $this->estimatedMortgage;
+		return number_format($this->estimatedMortgage);
 	}
 
 	public function getNumOfBeds() {
@@ -64,7 +64,7 @@ class Listing {
 	}
 
 	public function getSqFt() {
-		return $this->sqFt;
+		return number_format($this->sqFt);
 	}
 
 	public function getDescription() {
@@ -126,7 +126,7 @@ class Listing {
 			<div class=\"house-card\">
 				<div class=\"house-img image\" style=\"background-image: url('{$featuredListingPhoto->getPhotoPath()}');\" ></div>
 				<div class=\"house-desc h-padding-sm v-padding-sm\">
-					<div class=\"price-text\">{$this->getPrice()}</div>
+					<div class=\"price-text\">\${$this->getPrice()}</div>
 					{$this->getNumOfBeds()} bds, {$this->getNumOfBaths()} ba, {$this->getSqFt()} sqft<br />
 					{$this->getAddress()}
 				</div>

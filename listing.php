@@ -55,12 +55,15 @@ $listing = $database->getListingById($_GET['listing_id']);
 <div class="container-fluid">
 	<div class="container">
 		<h3 class="wow fadeInUp">Interested?</h3>
+		<form action="./post/send-listing-email.php" method="post" accept-charset="utf-8">
+		<input type="hidden" name="listings_id" value="<?php echo $listing->getListingsId(); ?>">
 		<div class="btn-group-standard wow fadeInUp">
 			<input class="text-box-outline col-xs-12 col-sm-6" type="text" name="name" placeholder="Full Name" />
 			<input class="text-box-outline col-xs-12 col-sm-6" type="text" name="email" placeholder="Email" />
 		</div>
 		<textarea rows=5 class="text-area-outline col-xs-12 wow fadeInUp" name="message" placeholder="Message"></textarea>
-		<a class="btn-flat-dark-grey-inv col-xs-12 wow fadeInUp">I am interested</a>
+		<input type="submit" value="I am interested" class="btn-flat-dark-grey-inv col-xs-12 wow fadeInUp" />
+		</form>
 	</div>
 </div>
 
