@@ -2,7 +2,7 @@
 
 require_once $path["classes/Classes.php"];
 
-define('ENV', 'DEV'); // Change this to 'PROD' on production server
+define('ENV', 'PROD'); // Change this to 'PROD' on production server
 
 class KJDatabase {
 	
@@ -142,8 +142,7 @@ class KJDatabase {
 				`sq_ft`=?,
 				`description`=?,
 				`facts`=?,
-				`realtor`=?,
-				`featured_listing_photos_id`=?
+				`realtor`=?
 			WHERE
 			`listings_id` = ?;
 		");
@@ -156,8 +155,20 @@ class KJDatabase {
 		$query->bindValue(7, $listing->getDescription());
 		$query->bindValue(8, $listing->getFacts());
 		$query->bindValue(9, $listing->getRealtor());
-		$query->bindValue(10, $listing->getFeaturedListingPhotosId());
-		$query->bindValue(11, $listing->getListingsId());
+		$query->bindValue(10, $listing->getListingsId());
+		$query->execute();
+	}
+
+	public function updateListingFeaturedPhotoId($listing) {
+		$query = $this->db->prepare("
+			UPDATE `listings`
+			SET
+				`featured_listing_photos_id`=?
+			WHERE
+			`listings_id` = ?;
+		");
+		$query->bindValue(1, $listing->getFeaturedListingPhotosId());
+		$query->bindValue(2, $listing->getListingsId());
 		$query->execute();
 	}
 
@@ -218,9 +229,9 @@ class KJDatabase {
 
 	private function getProdConfigSettings() {
 	    $config['Connection'] = 'localhost';
-	    $config['Database'] = 'db_name_here';
-	    $config['Username'] = 'mysql_username_here';
-	    $config['Password'] = 'mysql_user_password_here (super secure)';
+	    $config['Database'] = 'ab8072_kenjoe';
+	    $config['Username'] = 'ab8072_salad';
+	    $config['Password'] = 'retep1';
 	    return $config;
 	}
 

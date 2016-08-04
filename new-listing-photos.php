@@ -1,8 +1,6 @@
-
-<?php 
+<?php session_start();
 require_once "./paths.php";
 require_once $path['config.php'];
-session_start();
 Password::ifNotSignedInGoTo("./sign-in.php");
 require_once "admin-header.php";
 

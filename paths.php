@@ -1,6 +1,6 @@
 <?php
 
-define("ROOT", $_SERVER['DOCUMENT_ROOT']."/kenjoe");
+define("ROOT", $_SERVER['DOCUMENT_ROOT']."");
 
 $path['classes/Database.php'] = ROOT.'/classes/Database.php';
 $path['classes/Classes.php'] = ROOT.'/classes/Classes.php';

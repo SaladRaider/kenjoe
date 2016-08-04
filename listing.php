@@ -35,8 +35,8 @@ $listing = $database->getListingById($_GET['listing_id']);
 	<div class="container">
 		<div class="col-sm-6">
 			<p>
-				<h3>$<?php echo $listing->getPrice(); ?></h3>
-				<?php echo $listing->getNumOfBeds(); ?> beds, <?php echo $listing->getNumOfBaths(); ?> baths, <?php echo $listing->getSqFt(); ?> sqft<br />
+				<h3>$<?php echo $listing->getFormattedPrice(); ?></h3>
+				<?php echo $listing->getNumOfBeds(); ?> beds, <?php echo $listing->getNumOfBaths(); ?> baths, <?php echo $listing->getFormattedSqFt(); ?> sqft<br />
 				<br />
 				<?php echo $listing->getDescription(); ?>
 			</p>
@@ -44,7 +44,7 @@ $listing = $database->getListingById($_GET['listing_id']);
 		<div class="col-sm-6">
 			<p>
 				<h3>EST. MORTGAGE</h3>
-				$<?php echo $listing->getEstimatedMortgage(); ?>/mo<br /><br />
+				$<?php echo $listing->getFormattedEstimatedMortgage(); ?>/mo<br /><br />
 				Facts
 				<?php echo $listing->getFactsAsHTML(); ?>
 			</p>

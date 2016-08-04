@@ -1,4 +1,3 @@
-
 <?php include("./header.php"); ?>
 
 <div class="container-fluid header-image-sm" data-parallax="scroll" data-image="./images/iStock_000014940140Large.jpg">

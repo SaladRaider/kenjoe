@@ -1,3 +1,4 @@
 images
 images/*
 post/make-password.php
+classes/Database.php

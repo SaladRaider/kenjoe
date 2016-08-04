@@ -9,18 +9,18 @@ define("MAX_FILE_SIZE", 500000);
 define("PROFILE_PHOTO_PATH", "./images/");
 define("PROFILE_PHOTO_NAME", "profile-photo");
 
-writeTextToFile($_POST['center-screen-text'], "./txt/center-screen-text.txt");
-writeTextToFile($_POST['footer-text'], "./txt/footer-text.txt");
-writeTextToFile($_POST['contact-form-email'], "./txt/contact-form-email.txt");
-writeTextToFile($_POST['interested-form-email'], "./txt/intersted-form-email.txt");
-writeTextToFile($_POST['facebook-page-link'], "./txt/facebook-page-link.txt");
-writeTextToFile($_POST['linkedin-page-link'], "./txt/linkedin-page-link.txt");
-writeTextToFile($_POST['about-content'], "./txt/about-content.txt");
-writeTextToFile($_POST['contact-content'], "./txt/contact-content.txt");
+writeTextToFile($_POST['center-screen-text'], "../txt/center-screen-text.txt");
+writeTextToFile($_POST['footer-text'], "../txt/footer-text.txt");
+writeTextToFile($_POST['contact-form-email'], "../txt/contact-form-email.txt");
+writeTextToFile($_POST['interested-form-email'], "../txt/intersted-form-email.txt");
+writeTextToFile($_POST['facebook-page-link'], "../txt/facebook-page-link.txt");
+writeTextToFile($_POST['linkedin-page-link'], "../txt/linkedin-page-link.txt");
+writeTextToFile($_POST['about-content'], "../txt/about-content.txt");
+writeTextToFile($_POST['contact-content'], "../txt/contact-content.txt");
 
 updateProfilePhoto($_FILES['profile-photo']);
 
-header("Location: ./admin.php");
+header("Location: ../admin.php");
 
 function writeTextToFile($text, $fileName) {
 	$myfile = fopen($fileName, "w") or die("Unable to open file!");

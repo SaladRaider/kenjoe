@@ -1,6 +1,6 @@
 <?php 
 
-define("ROOT", $_SERVER['DOCUMENT_ROOT']."/kenjoe");
+define("ROOT", $_SERVER['DOCUMENT_ROOT']."");
 
 $to = file_get_contents("../txt/contact-form-email.txt");
 $from = $_POST["email"];

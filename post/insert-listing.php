@@ -27,7 +27,7 @@ function linkFeaturedPhotoToListing($database, $newListing) {
 	$database->addListingPhoto($listingPhoto);
 	$listingPhoto->uploadListingPhotoToServer();
 	$newListing->setFeaturedListingPhotosId($listingPhoto->getListingPhotosId());
-	$database->updateListing($newListing);
+	$database->updateListingFeaturedPhotoId($newListing);
 }
 
 ?>
