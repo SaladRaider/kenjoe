@@ -1,5 +1,10 @@
-
-<?php include("./header.php"); ?>
+<?php 
+require_once "./paths.php";
+require_once $path['config.php'];
+session_start();
+Password::ifNotSignedInGoTo("./sign-in.php");
+require_once("./admin-header.php"); 
+?>
 
 <div class="container-fluid header-image-sm" data-parallax="scroll" data-image="./images/iStock_000014940140Large.jpg">
 	<div class="container centered banner-text">

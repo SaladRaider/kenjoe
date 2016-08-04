@@ -72,6 +72,12 @@ class KJDatabase {
 		return ListingPhoto::createListingPhotosFromQueryRows($query->fetchAll());
 	}
 
+	public function getPasswordHash() {
+		$query = $this->db->prepare("SELECT * FROM `admin_password` LIMIT 1");
+		$query->execute();
+		return $query->fetch()["password"];
+	}
+
 	// ADD METHODS
 
 	public function addListing($listing) {

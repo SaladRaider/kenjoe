@@ -2,6 +2,8 @@
 
 require_once "../paths.php";
 require_once $path["config.php"];
+session_start();
+Password::ifNotSignedInGoTo("../sign-in.php");
 
 try {
 	$database->beginTransaction();

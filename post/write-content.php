@@ -1,5 +1,10 @@
 <?php
 
+require_once "../paths.php";
+require_once $path['config.php'];
+session_start();
+Password::ifNotSignedInGoTo("../sign-in.php");
+
 define("MAX_FILE_SIZE", 500000);
 define("PROFILE_PHOTO_PATH", "./images/");
 define("PROFILE_PHOTO_NAME", "profile-photo");

@@ -2,7 +2,9 @@
 <?php 
 require_once "./paths.php";
 require_once $path['config.php'];
-require_once "header.php";
+session_start();
+Password::ifNotSignedInGoTo("./sign-in.php");
+require_once "admin-header.php";
 
 $listing = $database->getListingById($_GET['listing_id']);
 $listingPhotos = $listing->getListingPhotos($database);
